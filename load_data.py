@@ -12,12 +12,12 @@ class CT_data:
         self.scan_data = self.load_data(self.path_data)
         self.ref_data = self.load_data(self.path_ref)
 
-        # Normalize
+        # Calib
         self.data = np.log10(self.ref_data/self.scan_data)
 
         # filter
-        kernel_size = [5,1,1]
-        self.data = gaussian_filter(self.data, sigma=kernel_size )
+        kernel_size = [1,5,1]
+        self.data = gaussian_filter(self.data, sigma=kernel_size)
         
 
         # Calibration
