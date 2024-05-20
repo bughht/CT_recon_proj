@@ -16,7 +16,7 @@ class CT_data:
         self.data = np.log10(self.ref_data/self.scan_data)
 
         # filter
-        kernel_size = [1,5,1]
+        kernel_size = [3,1,3]
         self.data = gaussian_filter(self.data, sigma=kernel_size)
         
 

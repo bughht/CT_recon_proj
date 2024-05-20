@@ -13,8 +13,8 @@ def CT_recon(data:CT_data):
         data.source_origin,
         data.origin_det
     )
-
     sinogram_id = astra.data3d.create(datatype='-sino', data=data.data, geometry=cone_geom)
+
     vol_geom = astra.create_vol_geom(640,640,480)
     cfg = astra.astra_dict('FDK_CUDA')
     cfg['ReconstructionDataId'] = astra.data3d.create(datatype='-vol', geometry=vol_geom,data=0)

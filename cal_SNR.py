@@ -8,8 +8,10 @@ std_green = np.load('std_green.npy')
 SNR_red = 10*np.log10(mean_red/std_red)
 SNR_green = 10*np.log10(mean_green/std_green)
 
-print(mean_red)
-print(mean_green)
+# print(mean_red)
+# print(mean_green)
 
+print("RED")
 print(SNR_red)
+print("GREEN")
 print(SNR_green)
