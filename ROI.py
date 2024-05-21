@@ -28,16 +28,17 @@ layer = np.array([
 
 r = 55
 
-center_red = np.array([
-    [210, 350],
-    [320, 200],
-    [405, 400]
-])
+# center_red = np.array([
+#     [210, 350],
+#     [320, 200],
+#     [405, 400]
+# ])
 center_green = np.array([
     [225, 370],
-    [300, 210],
+    [280, 210],
     [420, 370]
 ])
+center_red = center_green
 
 def msk_generate(recon, center, layer, r):
     rr, cc = disk((center[0], center[1]), r, shape = recon.shape[1:])

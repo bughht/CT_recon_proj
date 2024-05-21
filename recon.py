@@ -2,14 +2,14 @@ import astra
 from load_data import CT_data
 import numpy as np
 
-def CT_recon(data:CT_data):
+def CT_recon(data:CT_data,init_angle=0):
     cone_geom = astra.create_proj_geom(
         'cone',
         1,
         1,
         data.data.shape[0],
         data.data.shape[2],
-        np.linspace(0, 2*np.pi, 320, endpoint=False),
+        np.linspace(init_angle, 2*np.pi+init_angle, 320, endpoint=False),
         data.source_origin,
         data.origin_det
     )
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     CT_data_red = CT_data('data/RED')
     CT_data_green = CT_data('data/GREEN')
-    recon_red, sinogram_red = CT_recon(CT_data_red)
+    recon_red, sinogram_red = CT_recon(CT_data_red,np.deg2rad(18))
     recon_green, sinogram_green= CT_recon(CT_data_green)
 
     slice = np.array([100,180,260,340])+15
