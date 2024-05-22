@@ -1,11 +1,5 @@
 # Methods and Materials
 
-## Principle of FDK reconstruction:
-
-ref: https://people.csail.mit.edu/bkph/courses/papers/Exact_Conebeam/Turbell_Thesis_FBP_2001.pdf
-
-page 47
-
 ## Dataset: 
 
 ScanData and RefData for GREEN and RED: 320 BMP images of uint16 data type, loaded with numpy.

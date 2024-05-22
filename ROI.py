@@ -54,10 +54,25 @@ for center_idx in range(3):
         ROI_red.append(msk_generate(recon_red, center_red[center_idx], l, r))
         ROI_green.append(msk_generate(recon_green, center_green[center_idx], l, r))
 
+
+ROI_bkgd = np.zeros(recon_red.shape, dtype=bool)
+ROI_bkgd[300:350,480:510,280:330] = 1
+plt.imshow(ROI_bkgd.sum(axis=(0)),cmap='gray')
+plt.show()
+
 ROI_red = np.array(ROI_red).reshape(3,4, *recon_red.shape)
 ROI_green = np.array(ROI_green).reshape(3,4, *recon_green.shape)
-ROI_bkgd = np.zeros(recon_red.shape, dtype=bool)
-ROI_bkgd[460:510,240:290,150:300] = 1
+print(ROI_red.shape)
+plt.subplot(1,3,1)
+plt.imshow(ROI_red.sum(axis=(0,1,2)),cmap='gray')
+plt.title("ROI Transverse")
+plt.subplot(1,3,2)
+plt.imshow(ROI_red.sum(axis=(0,1,3)),cmap='gray')
+plt.title("ROI Axial")
+plt.subplot(1,3,3)
+plt.imshow(ROI_red.sum(axis=(0,1,4)),cmap='gray')
+plt.title("ROI Coronal")
+plt.show()
 
 print("RED")
 img_ROI_red = recon_red.copy()
